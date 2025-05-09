@@ -1,0 +1,152 @@
+[
+  {
+    "dataset": "VC Model(04May2025-02_11_39)",
+    "index": 1,
+    "filename": "8a10268c-1fa5-4f15-8603-8983673adda1.jpg",
+    "class_counts": {
+      "vehicle": 7
+    },
+    "class_summary": "vehicle: 7",
+    "total_objects": 7,
+    "score": 87.58458860379986,
+    "metrics": {
+      "sharpness": 2936.292582875854,
+      "sharpness_score": 30.0,
+      "brightness": 129.92017139721943,
+      "exposure_score": 19.699973219184464,
+      "classes_present": 3,
+      "class_diversity_score": 22.5,
+      "total_objects": 13,
+      "objects_score": 10.0,
+      "annotations_before": 13,
+      "annotations_after": 7,
+      "annotation_quality_score": 5.384615384615384,
+      "total_score": 87.58458860379986,
+      "class_counts": {
+        "vehicle": 11,
+        "carplate": 1,
+        "logo": 1
+      }
+    }
+  },
+  {
+    "dataset": "VC Model(04May2025-02_11_39)",
+    "index": 2,
+    "filename": "21baa7a9-ca36-4df0-9b0f-107993dd2afd.jpg",
+    "class_counts": {
+      "vehicle": 6
+    },
+    "class_summary": "vehicle: 6",
+    "total_objects": 6,
+    "score": 87.09015342832302,
+    "metrics": {
+      "sharpness": 2617.912148544601,
+      "sharpness_score": 30.0,
+      "brightness": 127.83852040280578,
+      "exposure_score": 19.974768812938404,
+      "classes_present": 3,
+      "class_diversity_score": 22.5,
+      "total_objects": 13,
+      "objects_score": 10.0,
+      "annotations_before": 13,
+      "annotations_after": 6,
+      "annotation_quality_score": 4.615384615384616,
+      "total_score": 87.09015342832302,
+      "class_counts": {
+        "vehicle": 9,
+        "carplate": 2,
+        "logo": 2
+      }
+    }
+  },
+  {
+    "dataset": "VC Model(04May2025-02_11_39)",
+    "index": 3,
+    "filename": "457d58c7-cc7b-4658-a0bc-5d1e9deae82e.jpg",
+    "class_counts": {
+      "vehicle": 4
+    },
+    "class_summary": "vehicle: 4",
+    "total_objects": 4,
+    "score": 86.41696780215028,
+    "metrics": {
+      "sharpness": 2798.0233865715863,
+      "sharpness_score": 30.0,
+      "brightness": 127.46859393376177,
+      "exposure_score": 19.916967802150275,
+      "classes_present": 3,
+      "class_diversity_score": 22.5,
+      "total_objects": 10,
+      "objects_score": 10.0,
+      "annotations_before": 10,
+      "annotations_after": 4,
+      "annotation_quality_score": 4.0,
+      "total_score": 86.41696780215028,
+      "class_counts": {
+        "vehicle": 8,
+        "carplate": 1,
+        "logo": 1
+      }
+    }
+  },
+  {
+    "dataset": "VC Model(04May2025-02_11_39)",
+    "index": 4,
+    "filename": "37fec7b3-fcf6-4271-ad3c-e2ebc1474269.jpg",
+    "class_counts": {
+      "vehicle": 4
+    },
+    "class_summary": "vehicle: 4",
+    "total_objects": 4,
+    "score": 86.28731768618348,
+    "metrics": {
+      "sharpness": 2731.303674447029,
+      "sharpness_score": 30.0,
+      "brightness": 126.63883319157426,
+      "exposure_score": 19.787317686183478,
+      "classes_present": 3,
+      "class_diversity_score": 22.5,
+      "total_objects": 10,
+      "objects_score": 10.0,
+      "annotations_before": 10,
+      "annotations_after": 4,
+      "annotation_quality_score": 4.0,
+      "total_score": 86.28731768618348,
+      "class_counts": {
+        "vehicle": 8,
+        "carplate": 1,
+        "logo": 1
+      }
+    }
+  },
+  {
+    "dataset": "VC Model(04May2025-02_11_39)",
+    "index": 5,
+    "filename": "bd6d6491-1ac3-489d-8bee-e1db4e6c35c7.jpg",
+    "class_counts": {
+      "vehicle": 6
+    },
+    "class_summary": "vehicle: 6",
+    "total_objects": 6,
+    "score": 86.01611697047969,
+    "metrics": {
+      "sharpness": 2970.519126963406,
+      "sharpness_score": 30.0,
+      "brightness": 128.0850866830477,
+      "exposure_score": 19.986705205773795,
+      "classes_present": 3,
+      "class_diversity_score": 22.5,
+      "total_objects": 17,
+      "objects_score": 10.0,
+      "annotations_before": 17,
+      "annotations_after": 6,
+      "annotation_quality_score": 3.5294117647058827,
+      "total_score": 86.01611697047969,
+      "class_counts": {
+        "vehicle": 15,
+        "carplate": 1,
+        "logo": 1
+      }
+    }
+  }
+]

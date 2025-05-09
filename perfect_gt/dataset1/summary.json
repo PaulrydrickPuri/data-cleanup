@@ -1,0 +1,158 @@
+[
+  {
+    "dataset": "VC Model(02May2025-16_20_57)",
+    "index": 1,
+    "filename": "0d185146-18ad-4141-8c95-59ded77e53f8.jpg",
+    "class_counts": {
+      "vehicle": 2
+    },
+    "class_summary": "vehicle: 2",
+    "total_objects": 2,
+    "score": 88.78336136429398,
+    "metrics": {
+      "sharpness": 668.3975981734578,
+      "sharpness_score": 30.0,
+      "brightness": 124.48017939814815,
+      "exposure_score": 19.45002803096065,
+      "classes_present": 4,
+      "class_diversity_score": 30.0,
+      "total_objects": 6,
+      "objects_score": 6.0,
+      "annotations_before": 6,
+      "annotations_after": 2,
+      "annotation_quality_score": 3.333333333333333,
+      "total_score": 88.78336136429398,
+      "class_counts": {
+        "vehicle": 3,
+        "carplate": 1,
+        "motorcycle": 1,
+        "logo": 1
+      }
+    }
+  },
+  {
+    "dataset": "VC Model(02May2025-16_20_57)",
+    "index": 2,
+    "filename": "12c5d7d7-cd89-4f50-9ecb-5a4ad61749c7.jpg",
+    "class_counts": {
+      "logo": 1,
+      "carplate": 1,
+      "vehicle": 1
+    },
+    "class_summary": "logo: 1, carplate: 1, vehicle: 1",
+    "total_objects": 3,
+    "score": 81.8948541808668,
+    "metrics": {
+      "sharpness": 1006.0364016178557,
+      "sharpness_score": 30.0,
+      "brightness": 114.52706675754752,
+      "exposure_score": 17.8948541808668,
+      "classes_present": 3,
+      "class_diversity_score": 22.5,
+      "total_objects": 4,
+      "objects_score": 4.0,
+      "annotations_before": 4,
+      "annotations_after": 3,
+      "annotation_quality_score": 7.5,
+      "total_score": 81.8948541808668,
+      "class_counts": {
+        "vehicle": 2,
+        "carplate": 1,
+        "logo": 1
+      }
+    }
+  },
+  {
+    "dataset": "VC Model(02May2025-16_20_57)",
+    "index": 3,
+    "filename": "c010fbe7-c9e7-45f8-9803-9a57659bb343.jpg",
+    "class_counts": {
+      "logo": 1,
+      "carplate": 1
+    },
+    "class_summary": "logo: 1, carplate: 1",
+    "total_objects": 2,
+    "score": 81.58687904357335,
+    "metrics": {
+      "sharpness": 816.1695865320661,
+      "sharpness_score": 30.0,
+      "brightness": 131.71064078779733,
+      "exposure_score": 19.42021237690667,
+      "classes_present": 3,
+      "class_diversity_score": 22.5,
+      "total_objects": 3,
+      "objects_score": 3.0,
+      "annotations_before": 3,
+      "annotations_after": 2,
+      "annotation_quality_score": 6.666666666666666,
+      "total_score": 81.58687904357335,
+      "class_counts": {
+        "vehicle": 1,
+        "carplate": 1,
+        "logo": 1
+      }
+    }
+  },
+  {
+    "dataset": "VC Model(02May2025-16_20_57)",
+    "index": 4,
+    "filename": "43f4f671-2aff-4333-bf6e-dbf284619a04.jpg",
+    "class_counts": {
+      "logo": 1,
+      "carplate": 1
+    },
+    "class_summary": "logo: 1, carplate: 1",
+    "total_objects": 2,
+    "score": 81.05669500508598,
+    "metrics": {
+      "sharpness": 784.2023149244844,
+      "sharpness_score": 30.0,
+      "brightness": 135.10381863411635,
+      "exposure_score": 18.89002833841932,
+      "classes_present": 3,
+      "class_diversity_score": 22.5,
+      "total_objects": 3,
+      "objects_score": 3.0,
+      "annotations_before": 3,
+      "annotations_after": 2,
+      "annotation_quality_score": 6.666666666666666,
+      "total_score": 81.05669500508598,
+      "class_counts": {
+        "vehicle": 1,
+        "carplate": 1,
+        "logo": 1
+      }
+    }
+  },
+  {
+    "dataset": "VC Model(02May2025-16_20_57)",
+    "index": 5,
+    "filename": "7f8249bb-6ddb-4973-a645-9db14061ba5f.jpg",
+    "class_counts": {
+      "logo": 1,
+      "carplate": 1
+    },
+    "class_summary": "logo: 1, carplate: 1",
+    "total_objects": 2,
+    "score": 80.90643077504225,
+    "metrics": {
+      "sharpness": 748.593869510444,
+      "sharpness_score": 30.0,
+      "brightness": 131.7988430397296,
+      "exposure_score": 19.40643077504225,
+      "classes_present": 3,
+      "class_diversity_score": 22.5,
+      "total_objects": 4,
+      "objects_score": 4.0,
+      "annotations_before": 4,
+      "annotations_after": 2,
+      "annotation_quality_score": 5.0,
+      "total_score": 80.90643077504225,
+      "class_counts": {
+        "vehicle": 2,
+        "carplate": 1,
+        "logo": 1
+      }
+    }
+  }
+]

@@ -1,0 +1,17 @@
+SamurAI_Central:
+  date_created: 02May2025-16:20:57
+  labelling_task_id:
+  - a8fadb24-13c2-4fd2-a7fd-194b82bacbdc
+  - aced2ca3-5de6-4d56-a05e-354fc0baffd8
+  project_id: 109092d7-9537-44d0-9030-eecd20fa3f46
+  project_url: https://app.visionsamur.ai/project/109092d7-9537-44d0-9030-eecd20fa3f46/overview
+names:
+- vehicle
+- carplate
+- motorcycle
+- logo
+nc: 4
+path: /Users/paulrydrickpuri/Documents/data-cleanup/improved_crops/VC Model(02May2025-16_20_57)
+test: ../test/images
+train: ../train/images
+val: ../valid/images

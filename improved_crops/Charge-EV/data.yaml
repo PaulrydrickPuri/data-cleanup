@@ -1,0 +1,17 @@
+SamurAI_Central:
+  date_created: 03May2025-16:23:08
+  labelling_task_id:
+  - 5cacbcdc-685b-48c6-b331-841a9f572638
+  - 60346082-de75-4e52-baa6-0c30ca4618a7
+  project_id: 109092d7-9537-44d0-9030-eecd20fa3f46
+  project_url: https://app.visionsamur.ai/project/109092d7-9537-44d0-9030-eecd20fa3f46/overview
+names:
+- vehicle
+- carplate
+- motorcycle
+- logo
+nc: 4
+path: /Users/paulrydrickpuri/Documents/data-cleanup/improved_crops/Charge-EV
+test: ../test/images
+train: ../train/images
+val: ../valid/images

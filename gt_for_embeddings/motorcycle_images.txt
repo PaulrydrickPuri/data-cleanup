@@ -1,0 +1,9 @@
+/Users/paulrydrickpuri/Documents/data-cleanup/gt_for_embeddings/gt_01_0d185146-18ad-4141-8c95-59ded77e53f8.jpg
+/Users/paulrydrickpuri/Documents/data-cleanup/gt_for_embeddings/gt_03_d65e856b-43b4-492b-bef2-61991e7436fa.jpg
+/Users/paulrydrickpuri/Documents/data-cleanup/gt_for_embeddings/gt_01_af176b8f-d669-4d14-a5df-1830cf8528c8.jpg
+/Users/paulrydrickpuri/Documents/data-cleanup/gt_for_embeddings/gt_02_3d4ab014-55ec-43c0-964e-2c989da56fb8.jpg
+/Users/paulrydrickpuri/Documents/data-cleanup/gt_for_embeddings/gt_03_4cb610c9-fdb1-4098-823f-e820c8bbe323.jpg
+/Users/paulrydrickpuri/Documents/data-cleanup/gt_for_embeddings/gt_04_bccf6489-4447-4884-9d35-2a326a742689.jpg
+/Users/paulrydrickpuri/Documents/data-cleanup/gt_for_embeddings/gt_05_d184e6f1-5b1d-4706-a3cb-3213a9423bf3.jpg
+/Users/paulrydrickpuri/Documents/data-cleanup/gt_for_embeddings/gt_06_e10bc3b7-4725-4b7e-9667-111c17d245bb.jpg
+/Users/paulrydrickpuri/Documents/data-cleanup/gt_for_embeddings/gt_07_9462ccb3-1cd0-4b04-9f1f-98dbc3622740.jpg

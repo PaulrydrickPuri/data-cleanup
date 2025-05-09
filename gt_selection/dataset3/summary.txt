@@ -1,0 +1,40 @@
+Image 1: 0c79dfbf-b4f2-4df5-9e97-a2fafdab7281.jpg
+  Classes: vehicle: 19, carplate: 3, logo: 1
+  Total objects: 23
+
+Image 2: e1677d2f-75ff-450e-8822-ea4c952a4eb0.jpg
+  Classes: vehicle: 20, carplate: 13, logo: 12
+  Total objects: 45
+
+Image 3: 4268dc0b-0013-4bd5-88a8-ec0c218aac59.jpg
+  Classes: vehicle: 24, carplate: 21, logo: 12
+  Total objects: 57
+
+Image 4: 9edb71aa-f866-484a-8394-cdfe20537a57.jpg
+  Classes: vehicle: 16, carplate: 6, logo: 4
+  Total objects: 26
+
+Image 5: db9569a0-ad27-4fe3-90c4-67b9eb506b73.jpg
+  Classes: vehicle: 24, carplate: 20, logo: 16
+  Total objects: 60
+
+Image 6: 7264231b-0e65-4eda-8ba8-eec5a1b3d2b2.jpg
+  Classes: vehicle: 16, carplate: 12, logo: 8
+  Total objects: 36
+
+Image 7: af7f7952-79f9-4518-900e-f1398dfdab0d.jpg
+  Classes: vehicle: 22, carplate: 18, logo: 14
+  Total objects: 54
+
+Image 8: 44ceb440-a4cf-4261-a419-f0aa2dd6486e.jpg
+  Classes: vehicle: 21, carplate: 17, logo: 16
+  Total objects: 54
+
+Image 9: ff9f164e-185d-495d-82da-52804bacb3b4.jpg
+  Classes: vehicle: 22, carplate: 2, logo: 2
+  Total objects: 26
+
+Image 10: 32db2430-9094-445a-8628-19eb370466c4.jpg
+  Classes: vehicle: 18, carplate: 15, logo: 13
+  Total objects: 46
+

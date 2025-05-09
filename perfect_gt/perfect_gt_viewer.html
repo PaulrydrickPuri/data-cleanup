@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfect Ground Truth Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .dataset-container {
+            margin-bottom: 40px;
+        }
+        .image-container {
+            margin-bottom: 30px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .image-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .image-metadata {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+        img {
+            max-width: 100%;
+            border: 1px solid #ddd;
+        }
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .tab {
+            padding: 10px 20px;
+            background-color: #e0e0e0;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        .tab.active {
+            background-color: #fff;
+            border-bottom: 1px solid white;
+            margin-bottom: -1px;
+            z-index: 1;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .legend {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .legend-item {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        .color-box {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+        .metrics {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Perfect Ground Truth Images with Clean Annotations</h1>
+    
+    <div class="legend">
+        <h3>Color Legend:</h3>
+        <div class="legend-item">
+            <span class="color-box" style="background-color: rgb(0, 255, 0);"></span>
+            <span>Vehicle</span>
+        </div>
+        <div class="legend-item">
+            <span class="color-box" style="background-color: rgb(255, 0, 0);"></span>
+            <span>Carplate</span>
+        </div>
+        <div class="legend-item">
+            <span class="color-box" style="background-color: rgb(0, 0, 255);"></span>
+            <span>Motorcycle</span>
+        </div>
+        <div class="legend-item">
+            <span class="color-box" style="background-color: rgb(255, 255, 0);"></span>
+            <span>Logo</span>
+        </div>
+    </div>
+    
+    <div class="tabs">
+        <div class="tab active" onclick="switchTab('dataset1')">VC Model(02May2025-16_20_57)</div>
+        <div class="tab" onclick="switchTab('dataset2')">VC Model(02May2025-19_34_21)</div>
+        <div class="tab" onclick="switchTab('dataset3')">Charge-EV</div>
+        <div class="tab" onclick="switchTab('dataset4')">VC Model(04May2025-02_11_39)</div>
+    </div>
+    
+    <div id="dataset1" class="tab-content active">
+        <h2>Dataset 1: VC Model(02May2025-16_20_57)</h2>
+        
+        <div class="dataset-container">
+            <!-- Image 1 -->
+            <div class="image-container">
+                <div class="image-title">Image 1: 0d185146-18ad-4141-8c95-59ded77e53f8.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 2</div>
+                <div class="metrics">Quality Score: 88.78</div>
+                <img src="dataset1/gt_01_0d185146-18ad-4141-8c95-59ded77e53f8.jpg" alt="Ground Truth Image 1">
+            </div>
+            <!-- Image 2 -->
+            <div class="image-container">
+                <div class="image-title">Image 2: 12c5d7d7-cd89-4f50-9ecb-5a4ad61749c7.jpg</div>
+                <div class="image-metadata">Classes: logo: 1, carplate: 1, vehicle: 1</div>
+                <div class="metrics">Quality Score: 81.89</div>
+                <img src="dataset1/gt_02_12c5d7d7-cd89-4f50-9ecb-5a4ad61749c7.jpg" alt="Ground Truth Image 2">
+            </div>
+            <!-- Image 3 -->
+            <div class="image-container">
+                <div class="image-title">Image 3: c010fbe7-c9e7-45f8-9803-9a57659bb343.jpg</div>
+                <div class="image-metadata">Classes: logo: 1, carplate: 1</div>
+                <div class="metrics">Quality Score: 81.59</div>
+                <img src="dataset1/gt_03_c010fbe7-c9e7-45f8-9803-9a57659bb343.jpg" alt="Ground Truth Image 3">
+            </div>
+            <!-- Image 4 -->
+            <div class="image-container">
+                <div class="image-title">Image 4: 43f4f671-2aff-4333-bf6e-dbf284619a04.jpg</div>
+                <div class="image-metadata">Classes: logo: 1, carplate: 1</div>
+                <div class="metrics">Quality Score: 81.06</div>
+                <img src="dataset1/gt_04_43f4f671-2aff-4333-bf6e-dbf284619a04.jpg" alt="Ground Truth Image 4">
+            </div>
+            <!-- Image 5 -->
+            <div class="image-container">
+                <div class="image-title">Image 5: 7f8249bb-6ddb-4973-a645-9db14061ba5f.jpg</div>
+                <div class="image-metadata">Classes: logo: 1, carplate: 1</div>
+                <div class="metrics">Quality Score: 80.91</div>
+                <img src="dataset1/gt_05_7f8249bb-6ddb-4973-a645-9db14061ba5f.jpg" alt="Ground Truth Image 5">
+            </div>
+        </div>
+    </div>
+    <div id="dataset2" class="tab-content">
+        <h2>Dataset 2: VC Model(02May2025-19_34_21)</h2>
+        
+        <div class="dataset-container">
+            <!-- Image 1 -->
+            <div class="image-container">
+                <div class="image-title">Image 1: d184e6f1-5b1d-4706-a3cb-3213a9423bf3.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 1, motorcycle: 1</div>
+                <div class="metrics">Quality Score: 88.23</div>
+                <img src="dataset2/gt_01_d184e6f1-5b1d-4706-a3cb-3213a9423bf3.jpg" alt="Ground Truth Image 1">
+            </div>
+            <!-- Image 2 -->
+            <div class="image-container">
+                <div class="image-title">Image 2: bccf6489-4447-4884-9d35-2a326a742689.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 1, motorcycle: 1</div>
+                <div class="metrics">Quality Score: 85.62</div>
+                <img src="dataset2/gt_02_bccf6489-4447-4884-9d35-2a326a742689.jpg" alt="Ground Truth Image 2">
+            </div>
+            <!-- Image 3 -->
+            <div class="image-container">
+                <div class="image-title">Image 3: 4cb610c9-fdb1-4098-823f-e820c8bbe323.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 1</div>
+                <div class="metrics">Quality Score: 85.12</div>
+                <img src="dataset2/gt_03_4cb610c9-fdb1-4098-823f-e820c8bbe323.jpg" alt="Ground Truth Image 3">
+            </div>
+            <!-- Image 4 -->
+            <div class="image-container">
+                <div class="image-title">Image 4: 9462ccb3-1cd0-4b04-9f1f-98dbc3622740.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 1</div>
+                <div class="metrics">Quality Score: 84.93</div>
+                <img src="dataset2/gt_04_9462ccb3-1cd0-4b04-9f1f-98dbc3622740.jpg" alt="Ground Truth Image 4">
+            </div>
+            <!-- Image 5 -->
+            <div class="image-container">
+                <div class="image-title">Image 5: 8fe72348-3596-4891-b946-4d9eeed69bb7.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 4</div>
+                <div class="metrics">Quality Score: 84.13</div>
+                <img src="dataset2/gt_05_8fe72348-3596-4891-b946-4d9eeed69bb7.jpg" alt="Ground Truth Image 5">
+            </div>
+        </div>
+    </div>
+    <div id="dataset3" class="tab-content">
+        <h2>Dataset 3: Charge-EV</h2>
+        
+        <div class="dataset-container">
+            <!-- Image 1 -->
+            <div class="image-container">
+                <div class="image-title">Image 1: db8459c4-81cd-4fba-bbbf-a4d2ee1a8ef3.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 15</div>
+                <div class="metrics">Quality Score: 88.86</div>
+                <img src="dataset3/gt_01_db8459c4-81cd-4fba-bbbf-a4d2ee1a8ef3.jpg" alt="Ground Truth Image 1">
+            </div>
+            <!-- Image 2 -->
+            <div class="image-container">
+                <div class="image-title">Image 2: 702e347c-df7a-4b25-b5d2-663530d310c9.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 15</div>
+                <div class="metrics">Quality Score: 88.40</div>
+                <img src="dataset3/gt_02_702e347c-df7a-4b25-b5d2-663530d310c9.jpg" alt="Ground Truth Image 2">
+            </div>
+            <!-- Image 3 -->
+            <div class="image-container">
+                <div class="image-title">Image 3: 697e768b-0004-4e53-8b55-1cbe70a9b7b7.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 18</div>
+                <div class="metrics">Quality Score: 88.00</div>
+                <img src="dataset3/gt_03_697e768b-0004-4e53-8b55-1cbe70a9b7b7.jpg" alt="Ground Truth Image 3">
+            </div>
+            <!-- Image 4 -->
+            <div class="image-container">
+                <div class="image-title">Image 4: 3524cb7c-87ee-4213-8093-d11972bfbb60.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 12</div>
+                <div class="metrics">Quality Score: 87.52</div>
+                <img src="dataset3/gt_04_3524cb7c-87ee-4213-8093-d11972bfbb60.jpg" alt="Ground Truth Image 4">
+            </div>
+            <!-- Image 5 -->
+            <div class="image-container">
+                <div class="image-title">Image 5: 72f129e9-be9a-44d2-878d-177f697f9bfd.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 20</div>
+                <div class="metrics">Quality Score: 87.41</div>
+                <img src="dataset3/gt_05_72f129e9-be9a-44d2-878d-177f697f9bfd.jpg" alt="Ground Truth Image 5">
+            </div>
+        </div>
+    </div>
+    <div id="dataset4" class="tab-content">
+        <h2>Dataset 4: VC Model(04May2025-02_11_39)</h2>
+        
+        <div class="dataset-container">
+            <!-- Image 1 -->
+            <div class="image-container">
+                <div class="image-title">Image 1: 8a10268c-1fa5-4f15-8603-8983673adda1.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 7</div>
+                <div class="metrics">Quality Score: 87.58</div>
+                <img src="dataset4/gt_01_8a10268c-1fa5-4f15-8603-8983673adda1.jpg" alt="Ground Truth Image 1">
+            </div>
+            <!-- Image 2 -->
+            <div class="image-container">
+                <div class="image-title">Image 2: 21baa7a9-ca36-4df0-9b0f-107993dd2afd.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 6</div>
+                <div class="metrics">Quality Score: 87.09</div>
+                <img src="dataset4/gt_02_21baa7a9-ca36-4df0-9b0f-107993dd2afd.jpg" alt="Ground Truth Image 2">
+            </div>
+            <!-- Image 3 -->
+            <div class="image-container">
+                <div class="image-title">Image 3: 457d58c7-cc7b-4658-a0bc-5d1e9deae82e.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 4</div>
+                <div class="metrics">Quality Score: 86.42</div>
+                <img src="dataset4/gt_03_457d58c7-cc7b-4658-a0bc-5d1e9deae82e.jpg" alt="Ground Truth Image 3">
+            </div>
+            <!-- Image 4 -->
+            <div class="image-container">
+                <div class="image-title">Image 4: 37fec7b3-fcf6-4271-ad3c-e2ebc1474269.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 4</div>
+                <div class="metrics">Quality Score: 86.29</div>
+                <img src="dataset4/gt_04_37fec7b3-fcf6-4271-ad3c-e2ebc1474269.jpg" alt="Ground Truth Image 4">
+            </div>
+            <!-- Image 5 -->
+            <div class="image-container">
+                <div class="image-title">Image 5: bd6d6491-1ac3-489d-8bee-e1db4e6c35c7.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 6</div>
+                <div class="metrics">Quality Score: 86.02</div>
+                <img src="dataset4/gt_05_bd6d6491-1ac3-489d-8bee-e1db4e6c35c7.jpg" alt="Ground Truth Image 5">
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function switchTab(tabId) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Deactivate all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Activate selected tab and content
+            document.getElementById(tabId).classList.add('active');
+            document.querySelector(`.tab[onclick="switchTab('${tabId}')"]`).classList.add('active');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ground Truth Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .dataset-container {
+            margin-bottom: 40px;
+        }
+        .image-container {
+            margin-bottom: 30px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .image-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .image-metadata {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+        img {
+            max-width: 100%;
+            border: 1px solid #ddd;
+        }
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .tab {
+            padding: 10px 20px;
+            background-color: #e0e0e0;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        .tab.active {
+            background-color: #fff;
+            border-bottom: 1px solid white;
+            margin-bottom: -1px;
+            z-index: 1;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .legend {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .legend-item {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        .color-box {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ground Truth Images with Annotations</h1>
+    
+    <div class="legend">
+        <h3>Color Legend:</h3>
+        <div class="legend-item">
+            <span class="color-box" style="background-color: rgb(0, 255, 0);"></span>
+            <span>Vehicle</span>
+        </div>
+        <div class="legend-item">
+            <span class="color-box" style="background-color: rgb(255, 0, 0);"></span>
+            <span>Carplate</span>
+        </div>
+        <div class="legend-item">
+            <span class="color-box" style="background-color: rgb(0, 0, 255);"></span>
+            <span>Motorcycle</span>
+        </div>
+        <div class="legend-item">
+            <span class="color-box" style="background-color: rgb(255, 255, 0);"></span>
+            <span>Logo</span>
+        </div>
+    </div>
+    
+    <div class="tabs">
+        <div class="tab active" onclick="switchTab('dataset1')">Dataset 1: VC Model 16_20_57</div>
+        <div class="tab" onclick="switchTab('dataset2')">Dataset 2: VC Model 19_34_21</div>
+        <div class="tab" onclick="switchTab('dataset3')">Dataset 3: Charge-EV</div>
+        <div class="tab" onclick="switchTab('dataset4')">Dataset 4: VC Model 02_11_39</div>
+    </div>
+    
+    <div id="dataset1" class="tab-content active">
+        <h2>Dataset 1: VC Model(02May2025-16_20_57)</h2>
+        
+        <div class="dataset-container">
+            <!-- Image 1 -->
+            <div class="image-container">
+                <div class="image-title">Image 1: 0d185146-18ad-4141-8c95-59ded77e53f8.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 3, carplate: 1, motorcycle: 1, logo: 1</div>
+                <img src="gt_selection/dataset1/gt_01_0d185146-18ad-4141-8c95-59ded77e53f8.jpg" alt="Ground Truth Image 1">
+            </div>
+            
+            <!-- Image 2 -->
+            <div class="image-container">
+                <div class="image-title">Image 2: 311d27d0-1654-49f2-81e2-28592412e890.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 2, carplate: 1, logo: 2</div>
+                <img src="gt_selection/dataset1/gt_02_311d27d0-1654-49f2-81e2-28592412e890.jpg" alt="Ground Truth Image 2">
+            </div>
+            
+            <!-- Image 3 -->
+            <div class="image-container">
+                <div class="image-title">Image 3: d65e856b-43b4-492b-bef2-61991e7436fa.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 2, carplate: 2, motorcycle: 1</div>
+                <img src="gt_selection/dataset1/gt_03_d65e856b-43b4-492b-bef2-61991e7436fa.jpg" alt="Ground Truth Image 3">
+            </div>
+            
+            <!-- Image 4 -->
+            <div class="image-container">
+                <div class="image-title">Image 4: 7f8249bb-6ddb-4973-a645-9db14061ba5f.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 2, carplate: 1, logo: 1</div>
+                <img src="gt_selection/dataset1/gt_04_7f8249bb-6ddb-4973-a645-9db14061ba5f.jpg" alt="Ground Truth Image 4">
+            </div>
+            
+            <!-- Image 5 -->
+            <div class="image-container">
+                <div class="image-title">Image 5: 12c5d7d7-cd89-4f50-9ecb-5a4ad61749c7.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 2, carplate: 1, logo: 1</div>
+                <img src="gt_selection/dataset1/gt_05_12c5d7d7-cd89-4f50-9ecb-5a4ad61749c7.jpg" alt="Ground Truth Image 5">
+            </div>
+            
+            <!-- Images 6-10 (collapsed for brevity) -->
+            <details>
+                <summary>Show more images (6-10)</summary>
+                
+                <!-- Image 6 -->
+                <div class="image-container">
+                    <div class="image-title">Image 6: 849eb88c-cf04-46e3-b18b-a0cf958f400b.jpg</div>
+                    <div class="image-metadata">Classes: vehicle: 1, carplate: 1, logo: 1</div>
+                    <img src="gt_selection/dataset1/gt_06_849eb88c-cf04-46e3-b18b-a0cf958f400b.jpg" alt="Ground Truth Image 6">
+                </div>
+                
+                <!-- Image 7 -->
+                <div class="image-container">
+                    <div class="image-title">Image 7: 1688e0bc-b646-457a-bc74-953777599765.jpg</div>
+                    <div class="image-metadata">Classes: vehicle: 1, carplate: 1, logo: 1</div>
+                    <img src="gt_selection/dataset1/gt_07_1688e0bc-b646-457a-bc74-953777599765.jpg" alt="Ground Truth Image 7">
+                </div>
+                
+                <!-- Image 8 -->
+                <div class="image-container">
+                    <div class="image-title">Image 8: bb57cead-93ee-4770-8f15-e2995f679478.jpg</div>
+                    <div class="image-metadata">Classes: vehicle: 1, carplate: 1, logo: 1</div>
+                    <img src="gt_selection/dataset1/gt_08_bb57cead-93ee-4770-8f15-e2995f679478.jpg" alt="Ground Truth Image 8">
+                </div>
+                
+                <!-- Image 9 -->
+                <div class="image-container">
+                    <div class="image-title">Image 9: 3ba6539f-55de-40bc-9e43-13711fee0760.jpg</div>
+                    <div class="image-metadata">Classes: vehicle: 1, carplate: 1, logo: 1</div>
+                    <img src="gt_selection/dataset1/gt_09_3ba6539f-55de-40bc-9e43-13711fee0760.jpg" alt="Ground Truth Image 9">
+                </div>
+                
+                <!-- Image 10 -->
+                <div class="image-container">
+                    <div class="image-title">Image 10: 9b239ef2-6dec-4636-a844-65b9ead2a017.jpg</div>
+                    <div class="image-metadata">Classes: vehicle: 1, carplate: 1, logo: 1</div>
+                    <img src="gt_selection/dataset1/gt_10_9b239ef2-6dec-4636-a844-65b9ead2a017.jpg" alt="Ground Truth Image 10">
+                </div>
+            </details>
+        </div>
+    </div>
+    
+    <div id="dataset2" class="tab-content">
+        <h2>Dataset 2: VC Model(02May2025-19_34_21)</h2>
+        
+        <div class="dataset-container">
+            <!-- Image 1 -->
+            <div class="image-container">
+                <div class="image-title">Image 1: af176b8f-d669-4d14-a5df-1830cf8528c8.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 3, carplate: 3, motorcycle: 1, logo: 1</div>
+                <img src="gt_selection/dataset2/gt_01_af176b8f-d669-4d14-a5df-1830cf8528c8.jpg" alt="Ground Truth Image 1">
+            </div>
+            
+            <!-- Image 2 -->
+            <div class="image-container">
+                <div class="image-title">Image 2: 3d4ab014-55ec-43c0-964e-2c989da56fb8.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 2, carplate: 1, motorcycle: 3, logo: 1</div>
+                <img src="gt_selection/dataset2/gt_02_3d4ab014-55ec-43c0-964e-2c989da56fb8.jpg" alt="Ground Truth Image 2">
+            </div>
+            
+            <!-- Image 3 -->
+            <div class="image-container">
+                <div class="image-title">Image 3: 4cb610c9-fdb1-4098-823f-e820c8bbe323.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 2, carplate: 1, motorcycle: 1, logo: 1</div>
+                <img src="gt_selection/dataset2/gt_03_4cb610c9-fdb1-4098-823f-e820c8bbe323.jpg" alt="Ground Truth Image 3">
+            </div>
+            
+            <!-- Image 4 -->
+            <div class="image-container">
+                <div class="image-title">Image 4: bccf6489-4447-4884-9d35-2a326a742689.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 1, carplate: 1, motorcycle: 1, logo: 1</div>
+                <img src="gt_selection/dataset2/gt_04_bccf6489-4447-4884-9d35-2a326a742689.jpg" alt="Ground Truth Image 4">
+            </div>
+            
+            <!-- Image 5 -->
+            <div class="image-container">
+                <div class="image-title">Image 5: d184e6f1-5b1d-4706-a3cb-3213a9423bf3.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 1, carplate: 1, motorcycle: 1, logo: 1</div>
+                <img src="gt_selection/dataset2/gt_05_d184e6f1-5b1d-4706-a3cb-3213a9423bf3.jpg" alt="Ground Truth Image 5">
+            </div>
+            
+            <!-- Images 6-10 (collapsed for brevity) -->
+            <details>
+                <summary>Show more images (6-10)</summary>
+                
+                <!-- Image 6 -->
+                <div class="image-container">
+                    <div class="image-title">Image 6: e10bc3b7-4725-4b7e-9667-111c17d245bb.jpg</div>
+                    <div class="image-metadata">Classes: vehicle: 1, carplate: 1, motorcycle: 1, logo: 1</div>
+                    <img src="gt_selection/dataset2/gt_06_e10bc3b7-4725-4b7e-9667-111c17d245bb.jpg" alt="Ground Truth Image 6">
+                </div>
+                
+                <!-- Image 7 -->
+                <div class="image-container">
+                    <div class="image-title">Image 7: 9462ccb3-1cd0-4b04-9f1f-98dbc3622740.jpg</div>
+                    <div class="image-metadata">Classes: vehicle: 1, carplate: 1, motorcycle: 1, logo: 1</div>
+                    <img src="gt_selection/dataset2/gt_07_9462ccb3-1cd0-4b04-9f1f-98dbc3622740.jpg" alt="Ground Truth Image 7">
+                </div>
+                
+                <!-- Image 8 -->
+                <div class="image-container">
+                    <div class="image-title">Image 8: 8fe72348-3596-4891-b946-4d9eeed69bb7.jpg</div>
+                    <div class="image-metadata">Classes: vehicle: 6, carplate: 6, logo: 1</div>
+                    <img src="gt_selection/dataset2/gt_08_8fe72348-3596-4891-b946-4d9eeed69bb7.jpg" alt="Ground Truth Image 8">
+                </div>
+                
+                <!-- Image 9 -->
+                <div class="image-container">
+                    <div class="image-title">Image 9: 7ae18e6e-a1c6-4ceb-8959-ee558ae9cefc.jpg</div>
+                    <div class="image-metadata">Classes: vehicle: 5, carplate: 6, logo: 4</div>
+                    <img src="gt_selection/dataset2/gt_09_7ae18e6e-a1c6-4ceb-8959-ee558ae9cefc.jpg" alt="Ground Truth Image 9">
+                </div>
+                
+                <!-- Image 10 -->
+                <div class="image-container">
+                    <div class="image-title">Image 10: 51289687-3fb1-4761-bb5d-465ad82b3a22.jpg</div>
+                    <div class="image-metadata">Classes: vehicle: 3, carplate: 4, logo: 2</div>
+                    <img src="gt_selection/dataset2/gt_10_51289687-3fb1-4761-bb5d-465ad82b3a22.jpg" alt="Ground Truth Image 10">
+                </div>
+            </details>
+        </div>
+    </div>
+    
+    <div id="dataset3" class="tab-content">
+        <h2>Dataset 3: Charge-EV</h2>
+        
+        <div class="dataset-container">
+            <!-- Image 1 -->
+            <div class="image-container">
+                <div class="image-title">Image 1: 0c79dfbf-b4f2-4df5-9e97-a2fafdab7281.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 19, carplate: 3, logo: 1</div>
+                <img src="gt_selection/dataset3/gt_01_0c79dfbf-b4f2-4df5-9e97-a2fafdab7281.jpg" alt="Ground Truth Image 1">
+            </div>
+            
+            <!-- Image 2 -->
+            <div class="image-container">
+                <div class="image-title">Image 2: e1677d2f-75ff-450e-8822-ea4c952a4eb0.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 20, carplate: 13, logo: 12</div>
+                <img src="gt_selection/dataset3/gt_02_e1677d2f-75ff-450e-8822-ea4c952a4eb0.jpg" alt="Ground Truth Image 2">
+            </div>
+            
+            <!-- Image 3 -->
+            <div class="image-container">
+                <div class="image-title">Image 3: 4268dc0b-0013-4bd5-88a8-ec0c218aac59.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 24, carplate: 21, logo: 12</div>
+                <img src="gt_selection/dataset3/gt_03_4268dc0b-0013-4bd5-88a8-ec0c218aac59.jpg" alt="Ground Truth Image 3">
+            </div>
+            
+            <!-- Image 4 -->
+            <div class="image-container">
+                <div class="image-title">Image 4: 9edb71aa-f866-484a-8394-cdfe20537a57.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 16, carplate: 6, logo: 4</div>
+                <img src="gt_selection/dataset3/gt_04_9edb71aa-f866-484a-8394-cdfe20537a57.jpg" alt="Ground Truth Image 4">
+            </div>
+            
+            <!-- Image 5 -->
+            <div class="image-container">
+                <div class="image-title">Image 5: db9569a0-ad27-4fe3-90c4-67b9eb506b73.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 24, carplate: 20, logo: 16</div>
+                <img src="gt_selection/dataset3/gt_05_db9569a0-ad27-4fe3-90c4-67b9eb506b73.jpg" alt="Ground Truth Image 5">
+            </div>
+            
+            <!-- Images 6-10 (collapsed for brevity) -->
+            <details>
+                <summary>Show more images (6-10)</summary>
+                
+                <!-- Image 6 -->
+                <div class="image-container">
+                    <div class="image-title">Image 6: 7264231b-0e65-4eda-8ba8-eec5a1b3d2b2.jpg</div>
+                    <div class="image-metadata">Classes: vehicle: 16, carplate: 12, logo: 8</div>
+                    <img src="gt_selection/dataset3/gt_06_7264231b-0e65-4eda-8ba8-eec5a1b3d2b2.jpg" alt="Ground Truth Image 6">
+                </div>
+                
+                <!-- Image 7 -->
+                <div class="image-container">
+                    <div class="image-title">Image 7: af7f7952-79f9-4518-900e-f1398dfdab0d.jpg</div>
+                    <div class="image-metadata">Classes: vehicle: 22, carplate: 18, logo: 14</div>
+                    <img src="gt_selection/dataset3/gt_07_af7f7952-79f9-4518-900e-f1398dfdab0d.jpg" alt="Ground Truth Image 7">
+                </div>
+                
+                <!-- Image 8 -->
+                <div class="image-container">
+                    <div class="image-title">Image 8: 44ceb440-a4cf-4261-a419-f0aa2dd6486e.jpg</div>
+                    <div class="image-metadata">Classes: vehicle: 21, carplate: 17, logo: 16</div>
+                    <img src="gt_selection/dataset3/gt_08_44ceb440-a4cf-4261-a419-f0aa2dd6486e.jpg" alt="Ground Truth Image 8">
+                </div>
+                
+                <!-- Image 9 -->
+                <div class="image-container">
+                    <div class="image-title">Image 9: ff9f164e-185d-495d-82da-52804bacb3b4.jpg</div>
+                    <div class="image-metadata">Classes: vehicle: 22, carplate: 2, logo: 2</div>
+                    <img src="gt_selection/dataset3/gt_09_ff9f164e-185d-495d-82da-52804bacb3b4.jpg" alt="Ground Truth Image 9">
+                </div>
+                
+                <!-- Image 10 -->
+                <div class="image-container">
+                    <div class="image-title">Image 10: 32db2430-9094-445a-8628-19eb370466c4.jpg</div>
+                    <div class="image-metadata">Classes: vehicle: 18, carplate: 15, logo: 13</div>
+                    <img src="gt_selection/dataset3/gt_10_32db2430-9094-445a-8628-19eb370466c4.jpg" alt="Ground Truth Image 10">
+                </div>
+            </details>
+        </div>
+    </div>
+    
+    <div id="dataset4" class="tab-content">
+        <h2>Dataset 4: VC Model(04May2025-02_11_39)</h2>
+        
+        <div class="dataset-container">
+            <!-- Image 1 -->
+            <div class="image-container">
+                <div class="image-title">Image 1: 37fec7b3-fcf6-4271-ad3c-e2ebc1474269.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 8, carplate: 1, logo: 1</div>
+                <img src="gt_selection/dataset4/gt_01_37fec7b3-fcf6-4271-ad3c-e2ebc1474269.jpg" alt="Ground Truth Image 1">
+            </div>
+            
+            <!-- Image 2 -->
+            <div class="image-container">
+                <div class="image-title">Image 2: a853ea14-8df9-4e6b-82a6-d861711e4f2d.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 22, carplate: 1, logo: 1</div>
+                <img src="gt_selection/dataset4/gt_02_a853ea14-8df9-4e6b-82a6-d861711e4f2d.jpg" alt="Ground Truth Image 2">
+            </div>
+            
+            <!-- Image 3 -->
+            <div class="image-container">
+                <div class="image-title">Image 3: 38a58a6e-25a8-44c9-ad7d-3e28958e7347.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 16, carplate: 1, logo: 1</div>
+                <img src="gt_selection/dataset4/gt_03_38a58a6e-25a8-44c9-ad7d-3e28958e7347.jpg" alt="Ground Truth Image 3">
+            </div>
+            
+            <!-- Image 4 -->
+            <div class="image-container">
+                <div class="image-title">Image 4: c4223a91-5908-497a-a1d4-dec0e96c7e8d.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 18, carplate: 1, logo: 1</div>
+                <img src="gt_selection/dataset4/gt_04_c4223a91-5908-497a-a1d4-dec0e96c7e8d.jpg" alt="Ground Truth Image 4">
+            </div>
+            
+            <!-- Image 5 -->
+            <div class="image-container">
+                <div class="image-title">Image 5: 42a5cf1b-a59a-4bca-b733-4d81725e2b8f.jpg</div>
+                <div class="image-metadata">Classes: vehicle: 15, carplate: 1, logo: 1</div>
+                <img src="gt_selection/dataset4/gt_05_42a5cf1b-a59a-4bca-b733-4d81725e2b8f.jpg" alt="Ground Truth Image 5">
+            </div>
+            
+            <!-- Images 6-10 (collapsed for brevity) -->
+            <details>
+                <summary>Show more images (6-10)</summary>
+                
+                <!-- Image 6 -->
+                <div class="image-container">
+                    <div class="image-title">Image 6: 094cbdab-006d-4436-af96-e9d1255f928d.jpg</div>
+                    <div class="image-metadata">Classes: vehicle: 17, carplate: 1, logo: 1</div>
+                    <img src="gt_selection/dataset4/gt_06_094cbdab-006d-4436-af96-e9d1255f928d.jpg" alt="Ground Truth Image 6">
+                </div>
+                
+                <!-- Image 7 -->
+                <div class="image-container">
+                    <div class="image-title">Image 7: da4f5ae2-9829-49ba-bd78-00275392e30c.jpg</div>
+                    <div class="image-metadata">Classes: vehicle: 17, carplate: 1, logo: 1</div>
+                    <img src="gt_selection/dataset4/gt_07_da4f5ae2-9829-49ba-bd78-00275392e30c.jpg" alt="Ground Truth Image 7">
+                </div>
+                
+                <!-- Image 8 -->
+                <div class="image-container">
+                    <div class="image-title">Image 8: d9a8f5b7-70f0-48e4-babb-4d25b61721ae.jpg</div>
+                    <div class="image-metadata">Classes: vehicle: 6, carplate: 2, logo: 2</div>
+                    <img src="gt_selection/dataset4/gt_08_d9a8f5b7-70f0-48e4-babb-4d25b61721ae.jpg" alt="Ground Truth Image 8">
+                </div>
+                
+                <!-- Image 9 -->
+                <div class="image-container">
+                    <div class="image-title">Image 9: d1ead794-3ce0-49fa-92af-f923f7af569d.jpg</div>
+                    <div class="image-metadata">Classes: vehicle: 17, carplate: 1, logo: 1</div>
+                    <img src="gt_selection/dataset4/gt_09_d1ead794-3ce0-49fa-92af-f923f7af569d.jpg" alt="Ground Truth Image 9">
+                </div>
+                
+                <!-- Image 10 -->
+                <div class="image-container">
+                    <div class="image-title">Image 10: c8bacf27-eb85-4b96-8bf2-fec89c0109e9.jpg</div>
+                    <div class="image-metadata">Classes: vehicle: 10, carplate: 1, logo: 1</div>
+                    <img src="gt_selection/dataset4/gt_10_c8bacf27-eb85-4b96-8bf2-fec89c0109e9.jpg" alt="Ground Truth Image 10">
+                </div>
+            </details>
+        </div>
+    </div>
+    
+    <script>
+        function switchTab(tabId) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Deactivate all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Activate selected tab and content
+            document.getElementById(tabId).classList.add('active');
+            document.querySelector(`.tab[onclick="switchTab('${tabId}')"]`).classList.add('active');
+        }
+    </script>
+</body>
+</html>

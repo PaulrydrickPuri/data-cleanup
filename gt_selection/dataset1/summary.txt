@@ -1,0 +1,40 @@
+Image 1: 0d185146-18ad-4141-8c95-59ded77e53f8.jpg
+  Classes: vehicle: 3, carplate: 1, motorcycle: 1, logo: 1
+  Total objects: 6
+
+Image 2: 311d27d0-1654-49f2-81e2-28592412e890.jpg
+  Classes: vehicle: 2, carplate: 1, logo: 2
+  Total objects: 5
+
+Image 3: d65e856b-43b4-492b-bef2-61991e7436fa.jpg
+  Classes: vehicle: 2, carplate: 2, motorcycle: 1
+  Total objects: 5
+
+Image 4: 7f8249bb-6ddb-4973-a645-9db14061ba5f.jpg
+  Classes: vehicle: 2, carplate: 1, logo: 1
+  Total objects: 4
+
+Image 5: 12c5d7d7-cd89-4f50-9ecb-5a4ad61749c7.jpg
+  Classes: vehicle: 2, carplate: 1, logo: 1
+  Total objects: 4
+
+Image 6: 849eb88c-cf04-46e3-b18b-a0cf958f400b.jpg
+  Classes: vehicle: 1, carplate: 1, logo: 1
+  Total objects: 3
+
+Image 7: 1688e0bc-b646-457a-bc74-953777599765.jpg
+  Classes: vehicle: 1, carplate: 1, logo: 1
+  Total objects: 3
+
+Image 8: bb57cead-93ee-4770-8f15-e2995f679478.jpg
+  Classes: vehicle: 1, carplate: 1, logo: 1
+  Total objects: 3
+
+Image 9: 3ba6539f-55de-40bc-9e43-13711fee0760.jpg
+  Classes: vehicle: 1, carplate: 1, logo: 1
+  Total objects: 3
+
+Image 10: 9b239ef2-6dec-4636-a844-65b9ead2a017.jpg
+  Classes: vehicle: 1, carplate: 1, logo: 1
+  Total objects: 3
+

@@ -1,0 +1,10 @@
+{
+  "all_images": "/Users/paulrydrickpuri/Documents/data-cleanup/gt_for_embeddings/all_gt_images.txt",
+  "all_labels": "/Users/paulrydrickpuri/Documents/data-cleanup/gt_for_embeddings/all_gt_labels.txt",
+  "class_specific": {
+    "vehicle": "/Users/paulrydrickpuri/Documents/data-cleanup/gt_for_embeddings/vehicle_images.txt",
+    "carplate": "/Users/paulrydrickpuri/Documents/data-cleanup/gt_for_embeddings/carplate_images.txt",
+    "motorcycle": "/Users/paulrydrickpuri/Documents/data-cleanup/gt_for_embeddings/motorcycle_images.txt",
+    "logo": "/Users/paulrydrickpuri/Documents/data-cleanup/gt_for_embeddings/logo_images.txt"
+  }
+}
