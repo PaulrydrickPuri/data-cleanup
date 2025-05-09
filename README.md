@@ -1,6 +1,12 @@
 # Data Cleanup Pipeline for Vehicle Detection Datasets
 
+[![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)](https://github.com/PaulrydrickPuri/data-cleanup/blob/main/LICENSE)
+[![For: CoreframeAI](https://img.shields.io/badge/For-CoreframeAI-blue.svg)](https://github.com/PaulrydrickPuri/data-cleanup)
+[![Status: Active](https://img.shields.io/badge/Status-Active-brightgreen.svg)](https://github.com/PaulrydrickPuri/data-cleanup)
+
 A comprehensive preprocessing system for cleaning, validating, and optimizing vehicle detection datasets before model training.
+
+> **IMPORTANT**: This repository is proprietary and for exclusive use by CoreframeAI. Unauthorized use, distribution, or modification is strictly prohibited.
 
 ## Overview
 
