@@ -1,6 +1,0 @@
-path: cleaned_datasets\final-splits
-train: train/images
-val: val/images
-test: test/images
-nc: 0
-names: {}
