@@ -1,0 +1,11 @@
+path: C:/Users/night/Documents/Github/data-cleanup/cleaned_datasets/yolo-ready
+train: train/images
+val: val/images
+test: test/images
+
+nc: 4
+names:
+  0: vehicle_0
+  1: vehicle_1
+  2: vehicle_2
+  3: vehicle_3

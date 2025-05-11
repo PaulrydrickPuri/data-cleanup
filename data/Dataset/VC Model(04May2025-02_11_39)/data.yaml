@@ -1,0 +1,12 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 4
+names: [vehicle, carplate, motorcycle, logo]
+
+SamurAI_Central:
+  project_url: https://app.visionsamur.ai/project/109092d7-9537-44d0-9030-eecd20fa3f46/overview
+  date_created: 04May2025-02:11:39
+  project_id: 109092d7-9537-44d0-9030-eecd20fa3f46
+  labelling_task_id: [d952ae46-fe50-443a-b4a5-9c4822ece959, 4c739367-2290-48c3-a605-99d89ed421e8]

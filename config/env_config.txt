@@ -1,0 +1,5 @@
+LOG_JSON=true
+LOG_RAW_CROPS=false
+SAM_MODEL_TYPE=vit_h
+SAM_CHECKPOINT=C:\Users\night\Documents\Github\data-cleanup\sam_vit_h_4b8939.pth
+FORCE_CUDA=true

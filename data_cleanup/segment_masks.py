@@ -30,7 +30,19 @@ class MaskSegmenter:
             sam_checkpoint: Path to SAM model checkpoint. If None, downloads the default model.
             device: Device to run the model on ('cuda' or 'cpu').
         """
+        # Check if FORCE_CUDA is set in environment
+        force_cuda = os.getenv('FORCE_CUDA', '').lower() == 'true'
+        if force_cuda and torch.cuda.is_available():
+            device = "cuda"
+            logger.info("Forcing CUDA usage as specified in environment variables")
+        
         self.device = device
+        
+        # Check for SAM_CHECKPOINT in environment
+        env_checkpoint = os.getenv('SAM_CHECKPOINT')
+        if env_checkpoint and os.path.exists(env_checkpoint):
+            sam_checkpoint = env_checkpoint
+            logger.info(f"Using SAM checkpoint from environment: {sam_checkpoint}")
         
         # Default to ViT-B SAM model if no checkpoint provided
         if sam_checkpoint is None or not os.path.exists(sam_checkpoint):
@@ -42,15 +54,19 @@ class MaskSegmenter:
             if not os.path.exists(sam_checkpoint):
                 logger.info("Downloading SAM ViT-B checkpoint...")
                 # This will trigger the automatic download
-                
-        # Determine model type from checkpoint name
-        if "vit_h" in sam_checkpoint:
-            model_type = "vit_h"
-        elif "vit_l" in sam_checkpoint:
-            model_type = "vit_l"
-        else:
-            model_type = "vit_b"  # Default
-            
+        
+        # Check for SAM_MODEL_TYPE in environment
+        model_type = os.getenv('SAM_MODEL_TYPE')
+        
+        # If not in environment, determine from checkpoint name
+        if not model_type:
+            if "vit_h" in sam_checkpoint:
+                model_type = "vit_h"
+            elif "vit_l" in sam_checkpoint:
+                model_type = "vit_l"
+            else:
+                model_type = "vit_b"  # Default
+        
         logger.info(f"Loading SAM {model_type} model from {sam_checkpoint} on {device}")
         
         # Initialize SAM
@@ -82,8 +98,10 @@ class MaskSegmenter:
             x1, y1, x2, y2 = bbox
             
             # Convert to SAM input format (center point, width, height)
-            center_x = (x1 + x2) / 2
-            center_y = (y1 + y2) / 2
+            # Ensure numeric types for division
+            x1, y1, x2, y2 = map(float, bbox)
+            center_x = (x1 + x2) / 2.0
+            center_y = (y1 + y2) / 2.0
             width = x2 - x1
             height = y2 - y1
             
@@ -173,8 +191,8 @@ def segment_masks(image_path: Union[str, Path],
     if image is None:
         raise ValueError(f"Failed to load image: {image_path}")
         
-    # Extract bboxes from detections
-    bboxes = [det['bbox'] for det in detections]
+    # Extract bboxes from detections and ensure numeric types
+    bboxes = [[float(x) for x in det['bbox']] for det in detections]
     
     # Initialize segmenter
     segmenter = MaskSegmenter(sam_checkpoint)

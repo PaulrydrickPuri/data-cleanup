@@ -170,7 +170,8 @@ def filter_detection(image: np.ndarray,
         Dictionary with the original detection and added quality check results.
     """
     # Extract crop from image
-    x1, y1, x2, y2 = detection['bbox']
+    # First convert to float, then to int for array indexing
+    x1, y1, x2, y2 = map(lambda x: int(float(x)), detection['bbox'])
     crop = image[y1:y2, x1:x2]
     
     # Initialize quality filter
