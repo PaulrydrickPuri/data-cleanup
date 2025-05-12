@@ -20,6 +20,31 @@ wheels/
 .installed.cfg
 *.egg
 
+# Large data directories
+data/Dataset/
+data/cleaned_datasets/
+data/cropped_vehicles/
+data/improved_crops/
+data/gt_for_embeddings/
+data/gt_selection/
+data/perfect_gt/
+data/specific_gt/
+data/test_output/
+data/testdata/
+data/evaluation_results/
+
+# Model files
+models/*.pt
+models/*.pth
+models/outputs/
+
+# Logs
+logs/
+
+# Environment files
+venv/
+.env
+
 # Virtual Environment
 venv/
 ENV/
@@ -40,6 +65,12 @@ Thumbs.db
 cleaned_datasets/
 *.log
 .env
+
+# Collision detection outputs
+centroid_analytics_results/
+heatmap_results/
+outputs/
+evaluation_results/
 
 # Large files
 *.jpg
