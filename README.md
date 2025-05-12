@@ -3,6 +3,8 @@
 [![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)](https://github.com/PaulrydrickPuri/data-cleanup/blob/main/LICENSE)
 [![For: CoreframeAI](https://img.shields.io/badge/For-CoreframeAI-blue.svg)](https://github.com/PaulrydrickPuri/data-cleanup)
 [![Status: Production-Ready](https://img.shields.io/badge/Status-Production--Ready-brightgreen.svg)](https://github.com/PaulrydrickPuri/data-cleanup)
+[![Frontend: Modular](https://img.shields.io/badge/Frontend-Modular-orange.svg)](https://github.com/PaulrydrickPuri/data-cleanup/tree/main/web)
+[![Tools: Unified](https://img.shields.io/badge/Tools-Unified-purple.svg)](https://github.com/PaulrydrickPuri/data-cleanup/blob/main/tools/unified_collision_tool_v2.py)
 
 An enterprise-grade system for vehicle detection, data preprocessing, and advanced collision intelligence analytics with heat-map visualization.
 
@@ -29,6 +31,35 @@ An enterprise-grade collision detection system that:
 - Implements DBSCAN clustering for hotspot identification
 - Provides heat-map visualization of near-miss patterns
 - Includes structured logging for monitoring and CI/CD integration
+
+### Modular Frontend (New)
+
+A modern, maintainable web interface that:
+- Follows a modular architecture with clean separation of concerns
+- Organizes code into logical modules with single responsibilities
+- Uses ES modules for better dependency management
+- Implements BEM naming conventions for CSS
+- Provides a responsive, accessible user interface
+- Supports Vite for optimized bundling and development
+
+### Unified Collision Tool (New)
+
+A comprehensive command-line tool that unifies multiple detection algorithms:
+
+**Basic Tier Methods:**
+- `standard`: Basic IoU-based collision detection
+- `safety`: Focused on pedestrian/vehicle interactions
+- `quick`: Rapid validation of detection pipeline
+
+**Advanced Tier Methods:**
+- `enhanced`: Higher accuracy collision detection with multi-model approach
+- `centroid`: Proximity-based detection with heatmap generation
+- `tracking`: Advanced object tracking across frames
+
+**Admin Tier Methods:**
+- `batch`: Process multiple videos in sequence
+- `calibration`: Tune detection parameters and validate against ground truth
+- `telemetry`: Collect performance metrics and log processing statistics
 
 ## Key Features
 
@@ -58,64 +89,110 @@ An enterprise-grade collision detection system that:
 1. **Object Detection (YOLOv8)**
    - Identifies vehicles in images
    - Provides initial bounding box coordinates
-   - Assigns class predictions
 
-2. **Segmentation (SAM)**
-   - Processes each detected bounding box
-   - Creates precise masks for each object
-   - Filters out boxes with too much background
-   - Ensures only dominant objects proceed to validation
+2. **Instance Segmentation (SAM)**
+   - Generates precise masks for each vehicle
+   - Improves boundary accuracy for overlapping objects
 
 3. **Class Validation (CLIP)**
-   - Takes filtered bounding boxes from SAM
-   - Compares object crops against class embeddings
-   - Validates if detected class matches visual features
-   - Selected images only (performance optimization)
+   - Compares detected objects against gold standard anchors
+   - Filters out misclassified objects
 
-4. **OCR Check**
-   - Identifies text in images (license plates)
-   - Verifies against regex patterns
-   - Flags objects with text for privacy concerns
-   - Selected images only (performance optimization)
+4. **Quality Filtering**
+   - Removes blurry images (Laplacian variance)
+   - Filters out small objects (< 1% of image area)
+   - Checks exposure and contrast
 
-5. **Quality Filtering**
-   - Applies blur, size, and exposure thresholds
-   - Ensures only high-quality objects are included
-   - Final validation before dataset output
+5. **Format Conversion**
+   - Converts to COCO format for training
+   - Generates metadata for tracking
 
-## Collision Intelligence Architecture
+## Collision Intelligence System Flow
 
-1. **Object Detection & Tracking**
-   - YOLOv8 for efficient object detection (vehicles, people)
-   - Tracking persistence with Hungarian algorithm
-   - Optional StrongSORT with appearance embeddings (feature-flagged)
+1. **Object Detection**
+   - Detects people and vehicles in video frames
+   - Provides bounding boxes and class probabilities
 
-2. **Collision Detection**
-   - Resolution-aware centroid threshold (0.15 × diagonal)
-   - IoU-based overlap detection
-   - Velocity vector analysis
-   - Near-miss event categorization with cooldown
+2. **Centroid Tracking**
+   - Tracks object centroids across frames
+   - Maintains object identity with unique IDs
 
-3. **Analytics & Visualization**
-   - DBSCAN clustering for hotspot identification
-   - Risk scoring with quadratic proximity penalty
-   - Heat-map generation with weighted event scoring
-   - Interactive dashboard with metrics
+3. **Collision Detection**
+   - Calculates proximity between people and vehicles
+   - Applies resolution-aware thresholds
 
-4. **Monitoring & Integration**
-   - NDJSON structured logging
-   - Grafana Loki connector (coming soon)
-   - CI/CD gates with performance checks
-   - Docker containerization (coming soon)
+4. **Alert Management**
+   - Implements cooldown to reduce alert fatigue
+   - Classifies severity based on proximity and velocity
 
-## Repository Structure
+5. **Analytics Generation**
+   - Clusters collision points using DBSCAN
+   - Generates heat-maps of collision hotspots
+   - Exports metrics for dashboard integration
+
+## Usage
+
+### Data Cleanup Pipeline
+
+```bash
+# Run the full pipeline
+python data_cleanup/clean_dataset.py --input data/Dataset --output data/cleaned_datasets
+
+# Run with specific options
+python data_cleanup/clean_dataset.py --input data/Dataset --output data/cleaned_datasets --clip-validation --ocr-check --quality-filter
+```
+
+### Collision Intelligence System
+
+```bash
+# Run centroid-based collision detection
+python tools/run_centroid_detection.py --video path/to/video.mp4 --output path/to/output.mp4
+
+# Run enhanced collision detection
+python tools/run_enhanced_detection.py --video path/to/video.mp4 --output path/to/output.mp4
+```
+
+### Unified Collision Tool (New)
+
+```bash
+# Basic tier - standard detection
+python tools/unified_collision_tool_v2.py --method standard path/to/video.mp4
+
+# Advanced tier - centroid analytics with custom threshold
+python tools/unified_collision_tool_v2.py --method centroid --threshold 0.35 path/to/video.mp4
+
+# Admin tier - batch processing
+python tools/unified_collision_tool_v2.py --method batch --input-dir path/to/videos/
+
+# List available methods in a category
+python tools/unified_collision_tool_v2.py --category basic
+```
+
+### Modular Frontend (New)
+
+```bash
+# Start development server
+cd web
+npm run dev
+
+# Build for production
+cd web
+npm run build
+
+# Preview production build
+cd web
+npm run preview
+```
+
+## Project Structure
 
 ```
 data-cleanup/
-├── config/                  # Configuration files
-│   ├── .env                 # Environment variables
-│   ├── env_config.txt       # Configuration settings
-│   └── dataset_fixed.yaml   # YOLO dataset configuration
+├── collision_api/           # Flask API for collision detection
+│   ├── app.py               # Main API application
+│   ├── routes/              # API endpoints
+│   ├── services/            # Business logic
+│   └── utils/               # Utility functions
 │
 ├── data/                    # All data-related directories
 │   ├── Dataset/             # Original input dataset
@@ -148,223 +225,82 @@ data-cleanup/
 │   └── yolov8n.pt           # YOLO model weights for real-time detection
 │
 ├── reports/                 # Documentation and reports
-│   ├── optimization_report_2025-05-11.md  # Pipeline performance report
-│   └── collision_system_benchmark.md      # Collision detection benchmarks
+│   ├── figures/             # Generated figures and plots
+│   └── results/             # Analysis results
 │
-├── scripts/                 # Executable scripts
-│   ├── train_yolov8.py      # YOLOv8 training script
-│   ├── pause_resume_cleanup.py  # Resumable pipeline script
-│   └── [other scripts]      # Various utility scripts
+├── tools/                   # Utility scripts and tools
+│   ├── unified_collision_tool_v2.py  # NEW: Unified collision detection tool
+│   ├── collision_detection.py        # Collision detection implementation
+│   ├── enhanced_collision_detection.py  # Enhanced detection algorithm
+│   ├── run_centroid_detection.py     # Centroid-based detection script
+│   └── [other tools]        # Various utility scripts
 │
-├── tools/                   # Collision detection tools
-│   ├── collision_detection.py   # Core collision detection logic
-│   ├── collision_config.py      # Configuration parameters
-│   ├── tracking_persistence.py  # Hungarian tracking algorithm
-│   ├── heatmap_analytics.py     # Heat-map generation and analysis
-│   ├── cooldown_manager.py      # Yellow flag cooldown system
-│   ├── run_centroid_detection.py # Main detection script
-│   ├── run_centroid_analytics.py # Analytics script for segments
-│   ├── run_batch_analytics.py   # Batch processing for multiple segments
-│   ├── run_quick_smoke_test.py  # CI/CD smoke test script
-│   └── show_results.py          # Analytics dashboard visualization
+├── web/                     # NEW: Modular frontend
+│   ├── index.html           # Main HTML entry point
+│   ├── assets/              # Frontend assets
+│   │   ├── css/             # Stylesheets
+│   │   └── js/              # JavaScript modules
+│   │       ├── main.js      # Main entry point
+│   │       ├── config.js    # Configuration
+│   │       ├── uploader.js  # File upload handling
+│   │       ├── renderer.js  # UI rendering
+│   │       └── [other modules]  # Other JS modules
+│   └── vite.config.js       # Vite configuration
 │
-├── tools/                   # Utilities and helpers
-│   ├── visualize_results.py  # Results visualization tool
-│   ├── fix_path_duplication.py  # Path handling fixes
-│   └── prepare_yolo_dataset.py  # YOLO dataset preparation
-│
-└── viewers/                 # Visual inspection tools
-    └── gt_viewer.html       # Ground truth visualization
+├── requirements.txt         # Python dependencies
+├── download_models.py       # Script to download model weights
+└── README.md                # This documentation
 ```
 
 ## Installation
 
-1. Create a virtual environment:
-
 ```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
+# Clone the repository
+git clone https://github.com/PaulrydrickPuri/data-cleanup.git
+cd data-cleanup
 
-2. Install dependencies:
-
-```bash
+# Install dependencies
 pip install -r requirements.txt
+
+# Download models
+python download_models.py
+
+# Install frontend dependencies (for modular frontend)
+cd web
+npm install
 ```
 
-## Performance Optimizations
+## Configuration
 
-This pipeline includes several key optimizations to improve processing speed while maintaining quality:
+### Data Cleanup Pipeline
 
-1. **Persistent Model Instances**
-   - CLIP and OCR models are loaded only once and kept in memory
-   - Eliminates repeated loading overhead for each image
-   - Reduces processing time by ~60%
+Edit `data_cleanup/assets/config.json` to configure:
+- Detection thresholds
+- CLIP similarity thresholds
+- Quality filter parameters
+- OCR verification settings
 
-2. **Selective Validation**
-   - Class validation runs on every 10th image by default
-   - Preserves quality control while significantly reducing processing time
-   - Can be adjusted via environment variables
+### Collision Intelligence System
 
-3. **Efficient Data Flow**
-   - Optimized pipeline ensures data flows correctly between stages
-   - Each stage only processes necessary information
-   - Only filtered bounding boxes proceed to validation steps
+Edit `tools/collision_config.py` to configure:
+- Detection thresholds
+- Proximity thresholds
+- Cooldown duration
+- Clustering parameters
 
-These optimizations have reduced processing time from 20+ hours to under 10 hours for a 4000+ image dataset while maintaining 90% data retention rate.
+## API Endpoints
 
-## Usage
+The collision detection API provides the following endpoints:
 
-### 1. Generate Anchor Embeddings
+- `POST /api/upload`: Upload a video for processing
+- `GET /api/status/{job_id}`: Check processing status
+- `GET /api/results/{job_id}`: Get processing results
+- `GET /api/results/{job_id}/{filename}`: Get specific result file
 
-First, generate anchor embeddings from your ground truth images:
+## Privacy & Ethics
 
-```bash
-python -m data_cleanup.validate_class generate \
-  --images data/gt_for_embeddings/gt_images.txt \
-  --labels data/gt_for_embeddings/gt_labels.txt \
-  --output data_cleanup/assets/gt_anchors.json
-```
-
-Where:
-- `gt_images.txt`: Text file with paths to ground truth images (one per line)
-- `gt_labels.txt`: Text file with class labels (one per line)
-
-### 2. Clean Dataset with Optimized Pipeline
-
-Run the optimized pipeline with pause/resume functionality:
-
-```bash
-python scripts/pause_resume_cleanup.py \
-  --dataset data/Dataset \
-  --output_dir data/cleaned_datasets/output \
-  --anchors data_cleanup/assets/gt_anchors.json \
-  --regex data_cleanup/assets/regex_plate.json \
-  --confidence 0.25 \
-  --similarity 0.65 \
-  --blur 100.0 \
-  --min-size 64 \
-  --min-exposure 30 \
-  --max-exposure 225
-```
-
-### 3. Prepare Dataset for Training
-
-Prepare the cleaned dataset for model training with proper train/val/test splits:
-
-```bash
-python tools/prepare_yolo_dataset.py \
-  --input data/cleaned_datasets/output \
-  --output data/yolo-ready \
-  --train 0.7 \
-  --val 0.2 \
-  --test 0.1
-```
-
-### 4. Train YOLOv8 Model
-
-Train a YOLOv8 model on the prepared dataset:
-
-```bash
-python scripts/train_yolov8.py \
-  --dataset data/yolo-ready \
-  --output models/outputs/training \
-  --model s \
-  --epochs 100 \
-  --batch 16
-```
-
-### 5. Visualize Results
-
-Visualize the model predictions and dataset:
-
-```bash
-python tools/visualize_results.py \
-  --dataset data/yolo-ready \
-  --predictions models/outputs/training/predictions
-```
-
-### 6. Convert to COCO Format (Optional)
-
-Convert the cleaned dataset to COCO format if needed:
-
-```bash
-python -m data_cleanup.convert_format \
-  --images data/yolo-ready/train/images \
-  --labels data/yolo-ready/train/labels \
-  --output data/yolo-ready/instances_train.json
-```
-
-## Environment Variables
-
-Create a `.env` file with the following options:
-
-```
-LOG_JSON=true                # Enable JSON structured logging
-LOG_RAW_CROPS=false          # Disable saving rejected crops (for privacy)
-```
-
-## Using the Collision Intelligence System
-
-### 1. Run Collision Detection on a Video
-
-```bash
-python tools/run_centroid_detection.py --video PATH_TO_VIDEO_FILE --output OUTPUT_VIDEO_PATH --visualize
-```
-
-### 2. Generate Analytics Dashboard
-
-```bash
-python tools/run_centroid_analytics.py --video PATH_TO_VIDEO_FILE --output analytics_output --visualize
-```
-
-### 3. Run Batch Analysis on Multiple Segments
-
-```bash
-python tools/run_batch_analytics.py --input-dir evaluation_results --output-dir analytics_results --visualize
-```
-
-### 4. View Analytics Dashboard
-
-```bash
-python tools/show_results.py --segment segment_name
-```
-
-### 5. Run CI/CD Smoke Test
-
-```bash
-python tools/run_quick_smoke_test.py --video PATH_TO_SAMPLE_VIDEO
-```
-
-## Roadmap: Next 0-3 Weeks
-
-| Priority | Action | Why it matters | Effort |
-|----------|--------|----------------|--------|
-| **P0** | **Automate nightly regression** on rotating corpus (720p, 1080p, 4K) with synthetic edge cases | Prevent silent performance drift and bias creep | ½ day (GitHub Actions) |
-| **P0** | **Containerize** (Docker) and pin exact lib versions (`opencv-python`, `scikit-learn`, `numpy`) | Reproducibility + fast rollback on edge nodes | 1 day |
-| **P1** | **Dashboard Connector** → push NDJSON into Grafana Loki + build panel templates | Turns raw logs into business-ready KPIs | 1-2 days |
-| **P1** | **Stream ingestion** (e.g., Kafka) for live cameras; run detection in micro-batches | Keeps latency < 350 ms on busy intersections | 2 days |
-| **P2** | **StrongSORT swap-in** behind a feature flag | Appearance embeddings recover velocity detail without ID jitter | 3-4 days |
-
-> **Strong recommendation**: Feature-flag StrongSORT behind `--tracker strongsort` and A/B test. Don't replace Hungarian until metrics prove net gain.
-
-## Future Roadmap (12-24 Months)
-
-1. **ByteTrack-style joint detection/tracking heads** will eventually replace Kalman/Hungarian methods
-2. **Self-supervised near-miss prediction** (e.g., PET Nets) to shift from detection to proactive avoidance
-3. **Federated model updates**: Edge devices train on local video for privacy-compliant updates
-4. **RegTech integration**: Align with ISO 39001, Euro NCAP VRU protocols for standardization
-
-## Testing
-
-Run the test suite:
-
-```bash
-pytest data_cleanup/tests/
-```
-
-## Ethical Considerations
-
+- The system is designed with privacy in mind
+- No PII is stored or processed without explicit consent
 - The pipeline stores only hashes of license plate text, never raw PII
 - Discarded images are logged by path only, not copied
 - Toggle `LOG_RAW_CROPS=false` to disable sensitive artifact dumps
@@ -396,3 +332,11 @@ Our collision detection system optimizations have shown significant improvements
 - Maintained 20-24 FPS on standard hardware
 - Increased collision detection by 133% compared to baseline
 - Reduced false positives by 41% with weighted scoring
+
+## Recent Updates
+
+- **2025-05-13**: Added modular frontend architecture and unified collision tool
+- **2025-05-01**: Implemented enhanced collision detection with multi-model approach
+- **2025-04-15**: Added centroid-based detection with heatmap generation
+- **2025-04-01**: Improved tracking with Kalman filters and StrongSORT
+- **2025-03-15**: Added batch processing capabilities for multiple videos

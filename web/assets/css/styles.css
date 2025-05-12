@@ -1,0 +1,270 @@
+/* 
+ * Collision Detection UI Styles
+ * Using BEM (Block Element Modifier) naming conventions for clarity and maintainability
+ */
+
+/* --------------- Base Styles --------------- */
+:root {
+  --primary-color: #2980b9;
+  --secondary-color: #3498db;
+  --success-color: #27ae60;
+  --warning-color: #f39c12;
+  --danger-color: #e74c3c;
+  --light-color: #f5f5f5;
+  --dark-color: #333333;
+  --border-color: #dddddd;
+  --text-color: #444444;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+/* --------------- Layout --------------- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: var(--primary-color);
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+.lead {
+  text-align: center;
+  margin-bottom: 2em;
+  color: #666;
+  font-size: 1.1em;
+}
+
+section {
+  margin-bottom: 2em;
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+/* --------------- Dropzone --------------- */
+.dropzone {
+  border: 2px dashed var(--primary-color) !important;
+  border-radius: 5px;
+  background: var(--light-color);
+  padding: 60px 20px;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 2em;
+  transition: background 0.3s ease;
+}
+
+.dropzone:hover {
+  background: #e6f2ff;
+}
+
+.dropzone .dz-message {
+  font-size: 1.5em;
+  color: var(--primary-color);
+}
+
+.dropzone .dz-preview {
+  margin: 10px;
+}
+
+/* --------------- Progress Bar --------------- */
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  margin: 15px 0;
+  overflow: hidden;
+}
+
+.progress-bar span {
+  display: block;
+  height: 100%;
+  background-color: var(--primary-color);
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+/* --------------- Video Player --------------- */
+.video-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 2em;
+}
+
+#result-video {
+  width: 100%;
+  max-height: 600px;
+  display: block;
+  background-color: black;
+}
+
+#bbox-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#collision-indicator {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 5px 10px;
+  background-color: var(--danger-color);
+  color: white;
+  border-radius: 3px;
+  font-weight: bold;
+  display: none;
+}
+
+/* --------------- Buttons --------------- */
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #1c638e;
+}
+
+.btn-success {
+  background-color: var(--success-color);
+}
+
+.btn-success:hover {
+  background-color: #208e4e;
+}
+
+.btn-warning {
+  background-color: var(--warning-color);
+}
+
+.btn-warning:hover {
+  background-color: #d68910;
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+}
+
+.btn-danger:hover {
+  background-color: #cb4335;
+}
+
+/* --------------- Table Styles --------------- */
+#collision-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+#collision-table th,
+#collision-table td {
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  text-align: left;
+}
+
+#collision-table th {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+#collision-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#collision-table tr:hover {
+  background-color: #e3e3e3;
+}
+
+.severity-high {
+  color: var(--danger-color);
+  font-weight: bold;
+}
+
+.severity-medium {
+  color: var(--warning-color);
+  font-weight: bold;
+}
+
+.severity-low {
+  color: var(--success-color);
+}
+
+/* --------------- Responsive Design --------------- */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+  
+  .video-container {
+    margin-bottom: 1em;
+  }
+  
+  .actions {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .btn {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  
+  #collision-table {
+    font-size: 0.9em;
+  }
+  
+  #collision-table th,
+  #collision-table td {
+    padding: 8px;
+  }
+}
+
+/* Accessibility enhancement for color-blind users */
+.severity-high::before {
+  content: "▲ ";
+}
+
+.severity-medium::before {
+  content: "■ ";
+}
+
+.severity-low::before {
+  content: "● ";
+}

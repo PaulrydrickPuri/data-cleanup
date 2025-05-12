@@ -1,0 +1,18 @@
+{
+  "name": "collision-detection-frontend",
+  "version": "1.0.0",
+  "description": "Modular frontend for collision detection API",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "vite --port 8000"
+  },
+  "keywords": ["collision-detection", "frontend", "modular"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^4.3.9"
+  }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Collision Detection Upload</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Third‑party libs from CDN -->
+  <script defer src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script defer src="https://unpkg.com/jspdf-autotable@3.5.25/dist/jspdf.plugin.autotable.js"></script>
+
+  <!-- Your code (ES‑Modules) -->
+  <script type="module" src="assets/js/main.js"></script>
+</head>
+
+<body>
+  <div id="app" class="container">
+    <!-- Mark‑up only; JS injects dynamic parts -->
+    <h1>Collision Detection Video Upload</h1>
+    <p class="lead">
+      Upload a video to analyse potential collisions (⚡ 133 % faster IoU tuning).
+    </p>
+
+    <!-- Dropzone -->
+    <form id="dz" class="dropzone"></form>
+
+    <!-- Live status -->
+    <section id="status" hidden>
+      <h3 id="status-title"></h3>
+      <div class="progress-bar"><span id="progress"></span></div>
+      <p><span id="progress-text">0 %</span> – <span id="stage">Init</span></p>
+    </section>
+
+    <!-- Results -->
+    <section id="results" hidden>
+      <video id="result-video" controls></video>
+      <canvas id="bbox-overlay"></canvas>
+
+      <div class="actions">
+        <button id="btn-csv" class="btn">💾 CSV</button>
+        <button id="btn-pdf" class="btn btn-warning">📄 PDF</button>
+        <button id="btn-reset" class="btn btn-danger">🔄 New</button>
+      </div>
+
+      <table id="collision-table"></table>
+    </section>
+  </div>
+</body>
+</html>
